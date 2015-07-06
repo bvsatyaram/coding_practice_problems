@@ -6,7 +6,7 @@
 
 # The following code is used to generate the random matrix
 # 
-# matrix = []
+# matrix = []c
 # 20.times do
 #   row = []
 #   20.times do
