@@ -12,8 +12,13 @@ end
 
 
 class LinkedList
+  def initialize
+    @sentinel = LinkedListNode.new(nil)
+    @tail = @sentinel
+  end
+
   def head
-    @head
+    @sentinel.next
   end
 
   def tail
@@ -21,18 +26,30 @@ class LinkedList
   end
 
   def empty?
-    @head.nil?
+    head.nil?
   end
 
   def append(val)
     node = LinkedListNode.new(val)
-    if self.empty?
-      @head = node
-      @tail = node
-    else
-      @tail.next = node
-      @tail = node
+    @tail.next = node
+    @tail = node
+  end
+
+  def prepend(val)
+    node = LinkedListNode.new(val)
+    node.next = head
+    @sentinel.next = node
+  end
+
+  def length
+    counter = 0
+    node = @sentinel.next
+    while !node.nil?
+      counter += 1
+      node = node.next
     end
+
+    return counter
   end
 end
 
@@ -46,6 +63,7 @@ ll.head.value # 1
 ll.prepend(4)
 ll.head.value # 4
 ll.tail.value # 3
+ll.length # 4
 
-# ll.insert(4, 3)
+ll.insert(4, 3)
 # ll.delete(2)
