@@ -2,7 +2,7 @@ require_relative "linked_list_node"
 
 class LinkedList
   def initialize
-    @sentinel = LinkedListNode.new(nil)
+    @sentinel = LinkedListNode.new
     @tail = @sentinel
   end
 

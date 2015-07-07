@@ -1,7 +1,7 @@
 class LinkedListNode
   attr_accessor :next
 
-  def initialize(val)
+  def initialize(val = nil)
     @value = val
   end
 
