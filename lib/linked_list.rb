@@ -3,7 +3,6 @@ require_relative "linked_list_node"
 class LinkedList
   def initialize
     @sentinel = LinkedListNode.new
-    @tail = @sentinel
   end
 
   def head
@@ -11,17 +10,26 @@ class LinkedList
   end
 
   def tail
-    @tail
+    element = @sentinel
+    while !element.next.nil?
+      element = element.next
+    end
+
+    return element
   end
 
   def empty?
     head.nil?
   end
 
-  def append(val)
-    node = LinkedListNode.new(val)
-    @tail.next = node
-    @tail = node
+  def append(obj)
+    if obj.is_a?(LinkedListNode)
+      node = obj
+    else
+      node = LinkedListNode.new(obj)
+    end
+    tail.next = node
+    tail = node
   end
 
   def prepend(val)
