@@ -77,6 +77,7 @@ class LinkedList
     prev_element.next = element_to_delete.next
     # Release the deleted node, so that GC can collect it soon
     element_to_delete.next = nil
+    return element_to_delete.value
   end
 
   def print
